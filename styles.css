@@ -148,3 +148,41 @@ body {
   transform: scale(1.03);
   border-color: #d62976;
 }
+
+/* Show captions on hover for desktop (already works) */
+.caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.6);
+  color: #fff;
+  padding: 10px;
+  text-align: center;
+  font-size: 0.95em;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none; /* prevent blocking taps */
+}
+
+.post:hover .caption {
+  opacity: 1;
+}
+
+/* 👇 Always show captions on small screens (mobile) */
+@media (hover: none) and (pointer: coarse) {
+  .caption {
+    opacity: 1;
+    position: static;
+    background: none;
+    color: #262626;
+    text-align: left;
+    padding: 10px 0 0;
+    font-size: 0.95em;
+  }
+
+  .post {
+    display: flex;
+    flex-direction: column;
+  }
+}
