@@ -116,3 +116,35 @@ body {
 .post:hover .caption {
   opacity: 1;
 }
+
+
+
+.side-by-side.equal-height {
+  display: flex;
+  width: 100%;
+  height: 100%; /* ensures parent .post controls height */
+}
+
+.side-by-side.equal-height img {
+  width: 50%;
+  aspect-ratio: 1 / 1;
+  object-fit: contain;
+  border: 2px solid #e6e6e6;
+  border-radius: 0; /* Optional: remove rounding between images */
+  transition: transform 0.3s ease;
+}
+
+.side-by-side.equal-height img:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.side-by-side.equal-height img:last-child {
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.side-by-side.equal-height img:hover {
+  transform: scale(1.03);
+  border-color: #d62976;
+}
